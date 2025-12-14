@@ -1,0 +1,181 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+}
+
+body{
+	background-image: url("https://d2w9rnfcy7mm78.cloudfront.net/41778324/original_29844c49b4cbcad8df3d6a3181e7a1c7.jpg?1765602371?bc=0");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 20px center;
+}
+
+.sidebar {
+	width: 100px;
+	height: 100vh;
+	background: yellow;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 5;
+	overflow: hidden;
+}
+
+.info summary::-webkit-details-marker {
+  display: none;
+}
+.info summary {
+  list-style: none;
+}
+
+.infobtn{
+	position: absolute;
+	width: 30px;
+	left: 10%;
+	cursor: pointer;
+	animation: upDown 13s ease-in-out infinite ;
+}
+
+.infobtn img{
+	width: 80px;
+	height: auto;
+	display: block;
+}
+
+
+.info-panel{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-8deg);
+
+
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .25s ease;
+	z-index: 9999;
+}
+
+.info-panel img{
+	max-width: 1700px;
+}
+
+.info[open] .info-panel{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+@keyframes upDown{
+	0%, 100% {transform: translate(0);}
+	50%	{ transform:translateY(800px); }
+}
+}
+}
+
+/* 배경 위 레이어(원하면 z-index 조절) */
+.morph-field{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3; /* 배경 위 / 콘텐츠 아래 */
+}
+
+
+
+/* 공통 blob */
+.blob{
+  position: absolute;
+  width: var(--size, 80px);
+  height: var(--size, 40px);
+
+  /* “원 → 유기체”로 변형 */
+  border-radius: 5%;
+
+  /* 움직임 + 변형을 동시에 */
+  animation:
+    roam var(--t, 12s) linear infinite,
+    morph var(--m, 5s) ease-in-out infinite;
+
+  /* 성능 */
+  will-change: transform, border-radius;
+}
+
+/* 화면을 돌아다니는 경로 (랜덤처럼 보이게 여러 포인트) */
+@keyframes roam{
+  0%   { transform: translate(-10vw, -10vh); }
+  12%  { transform: translate(90vw, 5vh); }
+  25%  { transform: translate(75vw, 95vh); }
+  38%  { transform: translate(-15vw, 85vh); }
+  52%  { transform: translate(110vw, 40vh); }
+  66%  { transform: translate(20vw, -30vh); }
+  80%  { transform: translate(95vw, 110vh); }
+  100% { transform: translate(-10vw, -20vh); }
+}
+
+/* 모양 변형(원에서 찌그러진 블랍으로) */
+@keyframes morph{
+  0%,100%{
+    border-radius: 50%;
+  }
+  15%{
+    border-radius: 60% 40% 55% 45% / 45% 60% 40% 55%;
+  }
+  70%{
+    border-radius: 35% 65% 40% 60% / 60% 40% 55% 45%;
+  }
+  75%{
+    border-radius: 70% 30% 60% 40% / 35% 65% 45% 55%;
+  }
+}
+
+/* 각 blob마다 크기/속도/지연을 다르게 해서 “랜덤”처럼 */
+.b1{ --size: 18px; --t: 14s; --m: 4.2s; animation-delay: -1.2s, -0.4s; }
+.b2{ --size: 28px; --t: 21s; --m: 6.8s; animation-delay: -7.0s, -2.1s; }
+.b3{ --size: 40px; --t: 30s; --m: 8.4s; animation-delay: -3.5s, -1.6s; }
+.b4{ --size: 120px; --t: 32s; --m: 7.6s; animation-delay: -20s, -0.9s;  }
+.b5{ --size: 80px; --t: 19s; --m: 5.8s; animation-delay: -9.2s, -3.0s; }
+.b6{ --size: 20px; --t: 23s; --m: 8.4s; animation-delay: -15s, -4.4s;  }
+
+/* 모션 줄이기 설정 존중 */
+@media (prefers-reduced-motion: reduce){
+  .blob{ animation: none; }
+}
+
+
+.blob{
+  background: yellow; 
+  opacity: 1 !important;
+  mix-blend-mode: normal;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.blob{
+	pointer-events: none;
+}
+
+.link-blob{
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.b3{
+  background: black !important;
+}
+
+.link-blob{
+	display: block;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 704px) {
+
+}
+
+    
+}
