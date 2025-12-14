@@ -38,6 +38,21 @@
   		 <a href="second/index.html" class="blob b3 link-blob" aria-label="다음 페이지로 이동"></a>
   	</div>
 </div>
+<script>
+  const info = document.querySelector('.info');
+  const infoPanel = document.querySelector('.info-panel');
+
+  // 패널(이미지 포함) 클릭하면 닫기
+  infoPanel.addEventListener('click', () => {
+    info.removeAttribute('open');
+  });
+
+  // ESC로도 닫기(옵션)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') info.removeAttribute('open');
+  });
+</script>
+
 </body>
 
 
